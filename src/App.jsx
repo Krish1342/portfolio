@@ -8,6 +8,7 @@ import { ProjectCard } from './components/ProjectCard';
 import { SkillBar } from './components/SkillBar';
 import { projects } from './data/projects';
 import { skills } from './data/skills';
+import myImage from "./krishlodha.jpg";
 
 
 
@@ -193,7 +194,7 @@ function App() {
             >
               <div className="aspect-square overflow-hidden rounded-2xl border-2 border-emerald-500/20">
                 <img
-                  src="/krishlodha.jpg"
+                  src={myImage}
                   alt="Krish Lodha"
                   className="w-full h-full object-cover"
                 />
