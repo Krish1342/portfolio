@@ -8,6 +8,8 @@ import { ProjectCard } from './components/ProjectCard';
 import { SkillBar } from './components/SkillBar';
 import { projects } from './data/projects';
 import { skills } from './data/skills';
+import {image} from "./data/krishlodha.jpg";
+
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -191,7 +193,7 @@ function App() {
             >
               <div className="aspect-square overflow-hidden rounded-2xl border-2 border-emerald-500/20">
                 <img
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&q=80"
+                  src={image}
                   alt="Krish Lodha"
                   className="w-full h-full object-cover"
                 />
