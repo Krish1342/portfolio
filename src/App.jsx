@@ -8,7 +8,7 @@ import { ProjectCard } from './components/ProjectCard';
 import { SkillBar } from './components/SkillBar';
 import { projects } from './data/projects';
 import { skills } from './data/skills';
-import {image} from "./data/krishlodha.jpg";
+import { image } from "./data/krishlodha.jpg";
 
 
 function App() {
