@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://krish1342.github.io/portfolio",
+  "homepage": "https://Krish1342.github.io/portfolio",
 
   "scripts": {
     "dev": "vite",
