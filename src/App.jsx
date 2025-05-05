@@ -184,7 +184,7 @@ function App() {
               <div className="aspect-square overflow-hidden rounded-2xl border-2 border-purple-500/20 relative">
                 <div className="w-full h-full transition-transform duration-300 group-hover:scale-[1.02]">
                   <img
-                    src="/Image.jpg"
+                    src="public/Image.jpg"
                     alt="Krish Lodha"
                     className="w-full h-full object-cover"
                   />
@@ -197,7 +197,7 @@ function App() {
                     Krish Lodha
                   </h3>
                   <a
-                    href="/KrishLodhaResume.pdf"
+                    href="public/KrishLodhaResume.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-4 py-2 bg-purple-500/20 hover:bg-purple-500/30 text-purple-400 rounded-lg transition-colors duration-300"
