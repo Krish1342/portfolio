@@ -14,11 +14,11 @@ export const projects = [
     tags: ["Python", "OpenCV", "face_recognition"]
   },
   {
-    title: "Restaurant Bill Splitting",
-    description: "A web application that helps groups easily split restaurant bills, calculate individual shares, and handle tips.",
+    title: "GeminiResumeIQ-A Resume Enhancer and Analyzer",
+    description: "A powerful resume enhancement tool that analyzes and improves resumes using the Gemini API, providing personalized feedback.",
     image: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/Krish1342/RESTAURANT-SPLITING-PBL",
-    tags: ["HTML", "CSS", "JavaScript", "Bootstrap"]
+    github: "https://github.com/Krish1342/GeminiResumeIQ",
+    tags: ["Python", "Gemini API", "Vector Embedding", "Natural Language Processing"]
   },
   {
     title: "Stock Prediction App",
