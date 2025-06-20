@@ -34,12 +34,12 @@ export function ProjectCard({ project, index }) {
             </span>
           ))}
         </div>
-        <div className="flex space-x-4">
+        <div className="flex space-x-4 mt-4">
           <a
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center text-slate-300 hover:text-white transition-colors"
+            className="flex items-center text-purple-400 hover:text-purple-200 transition-colors"
           >
             <Github size={20} className="mr-2" />
             Code

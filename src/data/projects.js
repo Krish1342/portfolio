@@ -1,10 +1,10 @@
 export const projects = [
   {
-    title: "AI Chat Bot",
-    description: "An intelligent chatbot powered by the Gemini API, featuring natural language processing and interactive responses.",
-    image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/Krish1342/JAVASCRIPT-AI-CHAT-BOT",
-    tags: ["JavaScript", "HTML", "CSS", "Gemini API"]
+    title:"PlaylistPilot",
+    description: "A music playlist generator that creates personalized playlists based on user preferences and listening history.",
+    image: "https://images.unsplash.com/photo-1504509546545-e000b4a62425?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    github: "https:github.com/Krish1342/PlaylistPilot",
+    tags: ["Python", "Machine Learning", "Music Analysis", "Gemini API","GenAI"]
   },
   {
     title: "Face Recognition System",
@@ -26,6 +26,13 @@ export const projects = [
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
     github: "https://github.com/Krish1342/StockPrediction",
     tags: ["Python", "Machine Learning", "Data Analysis", "Pandas"]
+  },
+  {
+    title: "AI Chat Bot",
+    description: "An intelligent chatbot powered by the Gemini API, featuring natural language processing and interactive responses.",
+    image: "https://images.unsplash.com/photo-1527430253228-e93688616381?auto=format&fit=crop&w=800&q=80",
+    github: "https://github.com/Krish1342/JAVASCRIPT-AI-CHAT-BOT",
+    tags: ["JavaScript", "HTML", "CSS", "Gemini API"]
   },
   {
     title: "Zomato Data Analysis",

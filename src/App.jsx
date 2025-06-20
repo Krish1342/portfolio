@@ -261,7 +261,7 @@ function App() {
             {projects.map((project, index) => (
               <ProjectCard key={index} project={project} index={index} />
             ))}
-            {projects.length > 6 && (
+            {projects.length >= 6 && (
               <div className="col-span-1 md:col-span-2 lg:col-span-3 flex items-center justify-center">
                 <a
                   href="https://github.com/krish1342?tab=repositories"
