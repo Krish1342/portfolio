@@ -5,6 +5,8 @@ export const skills = [
       "Building full-stack applications using modern frontend frameworks and scalable backend services.",
     skills: [
       { name: "React.js", category: "Frontend" },
+      { name: "Next.js", category: "Frontend" },
+      { name: "Vite", category: "Frontend" },
       { name: "JavaScript", category: "Frontend" },
       { name: "HTML/CSS", category: "Frontend" },
       { name: "Tailwind CSS", category: "Frontend" },
@@ -18,8 +20,8 @@ export const skills = [
       { name: "MySQL", category: "Database" },
       { name: "MongoDB", category: "Database" },
       { name: "PostgreSQL", category: "Database" },
-      { name: "SQLite", category: "Database" }
-    ]
+      { name: "SQLite", category: "Database" },
+    ],
   },
   {
     name: "Data Science",
@@ -36,8 +38,8 @@ export const skills = [
       { name: "Scikit-learn", category: "Machine Learning" },
       { name: "Data Visualization", category: "Analytics" },
       { name: "Kaggle", category: "Platform" },
-      { name: "Google Colab", category: "Notebook Environment" }
-    ]
+      { name: "Google Colab", category: "Notebook Environment" },
+    ],
   },
   {
     name: "Artificial Intelligence",
@@ -52,22 +54,15 @@ export const skills = [
       { name: "Reinforcement Learning", category: "Learning Paradigm" },
       { name: "AI Ethics", category: "Theory" },
       { name: "LangChain", category: "LLMs" },
+      { name: "LangGraph", category: "LLMs" },
       { name: "Google GenAI / Gemini", category: "LLMs" },
       { name: "Streamlit", category: "Deployment" },
-      { name: "Gradio", category: "Deployment" },
       { name: "Model Deployment", category: "MLOps" },
-      { name: "Experiment Tracking (e.g., Weights & Biases)", category: "MLOps" }
-    ]
-  },
-  {
-    name: "Programming Languages",
-    description:
-      "Languages used in various academic, personal, and production-level projects.",
-    skills: [
-      { name: "Python", category: "General Purpose" },
-      { name: "C/C++", category: "System Programming" },
-      { name: "JavaScript", category: "Web Development" }
-    ]
+      {
+        name: "Experiment Tracking (e.g., Weights & Biases)",
+        category: "MLOps",
+      },
+    ],
   },
   {
     name: "Tools & Platforms",
@@ -79,19 +74,35 @@ export const skills = [
       { name: "Terminal", category: "Productivity" },
       { name: "npm / Yarn", category: "Package Manager" },
       { name: "ChatGPT", category: "AI Assistant" },
-      { name: "Claude", category: "AI Assistant" }
-    ]
+      { name: "Claude", category: "AI Assistant" },
+    ],
   },
   {
-    name: "Soft Skills",
+    name: "Programming Languages",
     description:
-      "Interpersonal and cognitive skills that support collaboration and productivity.",
+      "Proficient in multiple programming languages with strong problem-solving and algorithmic thinking.",
     skills: [
-      { name: "Teamwork", category: "Collaboration" },
-      { name: "Communication", category: "Interpersonal" },
-      { name: "Problem Solving", category: "Cognitive" },
-      { name: "Adaptability", category: "Personal" },
-      { name: "Time Management", category: "Productivity" }
-    ]
-  }
+      { name: "Python", category: "Primary" },
+      { name: "JavaScript", category: "Primary" },
+      { name: "TypeScript", category: "Frontend" },
+      { name: "C++", category: "Systems" },
+      { name: "SQL", category: "Database" },
+      { name: "HTML/CSS", category: "Markup" },
+    ],
+  },
+  {
+    name: "Tools & Technologies",
+    description:
+      "Experienced with modern development tools, IDEs, and collaborative platforms for efficient software development.",
+    skills: [
+      { name: "VS Code", category: "IDE" },
+      { name: "PyCharm", category: "IDE" },
+      { name: "Jupyter Notebook", category: "Data Science" },
+      { name: "Google Colab", category: "ML Platform" },
+      { name: "Postman", category: "API Testing" },
+      { name: "Figma", category: "Design" },
+      { name: "Git & GitHub", category: "Version Control" },
+      { name: "Docker", category: "DevOps" },
+    ],
+  },
 ];

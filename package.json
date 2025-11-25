@@ -1,23 +1,22 @@
-
 {
   "name": "vite-react-starter",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "homepage": "https://krish1342.github.io/portfolio",
-
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-"deploy": "gh-pages -d dist"
-
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@supabase/supabase-js": "^2.39.7",
     "framer-motion": "^11.0.8",
+    "gsap": "^3.12.5",
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
