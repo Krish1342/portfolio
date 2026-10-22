@@ -1,7 +1,7 @@
 {
-  "name": "vite-react-starter",
+  "name": "krish-lodha-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "homepage": "https://krish1342.github.io/portfolio",
   "scripts": {
@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
-    "@supabase/supabase-js": "^2.39.7",
     "framer-motion": "^11.0.8",
     "gsap": "^3.12.5",
     "lucide-react": "^0.344.0",

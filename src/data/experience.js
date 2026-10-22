@@ -18,8 +18,8 @@ export const experience = [
 
 export const volunteering = [
   {
-    title: "Core Technical Team Member",
-    event: "TEDxMITWPU",
+    title: "TEDxMITWPU",
+    event: "Core Technical Team Member",
     description:
       "Led the end-to-end development and deployment of the TEDxMITWPU official website, achieving a 100% responsive, cross-platform design. Implemented speaker profiles, event schedules, resolving 50+ technical issues pre/post-launch and ensuring a seamless digital experience for 50+ attendees.",
     date: "Feb 2025 – April 2025",
