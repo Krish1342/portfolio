@@ -47,12 +47,12 @@ const nodes = [
   },
   {
     id: "vectors",
-    label: "Vector Embeddings",
-    sub: "pgvector • Similarity",
+    label: "Vector Store",
+    sub: "ChromaDB • FAISS",
     x: 480,
     y: 240,
     color: "#8b5cf6",
-    detail: "High-dimensional embedding search for resume ATS matching & semantic recommendations.",
+    detail: "High-dimensional vector storage and semantic search powering the Personal Knowledge Agent (Second Brain) and RAG reasoning.",
     metric: "Cosine Sim r>0.92",
   },
   {

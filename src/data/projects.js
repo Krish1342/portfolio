@@ -1,10 +1,10 @@
 export const projects = [
   {
     title: "Automated_EDA",
+    displayName: "Automated EDA & BI Platform",
     description:
-      "An AI-powered web application for automated data analysis and interactive PowerBI-like dashboard generation. Built with React, FastAPI, Python, Groq AI, Pandas, Plotly.js, and Tailwind CSS for seamless data exploration.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80",
+      "AI-powered web application for automated data analysis and interactive PowerBI-like dashboard generation. Delivers automated data profiling, feature correlation analysis, and Groq LLM synthesis in sub-second responses.",
+    live: "https://auto-eda-pink.vercel.app",
     github: "https://github.com/Krish1342/Automated_EDA",
     tags: [
       "React",
@@ -15,13 +15,54 @@ export const projects = [
       "Plotly.js",
       "Tailwind CSS",
     ],
+    highlight: true,
+  },
+  {
+    title: "Personal Knowledge Agent",
+    displayName: "Personal Knowledge Agent (Second Brain)",
+    description:
+      "Built and deployed a RAG-based personal knowledge agent for intelligent document ingestion, semantic retrieval, and multi-step reasoning. Integrated cyclic LangGraph workflows with vector storage for accurate synthesis.",
+    live: "https://second-brain-sand.vercel.app/",
+    github: "https://github.com/Krish1342",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "FastAPI",
+      "LangGraph",
+      "Groq LLMs",
+      "ChromaDB",
+      "Sentence Transformers",
+      "Vercel",
+      "Render",
+    ],
+    highlight: true,
+  },
+  {
+    title: "AgroTech AI",
+    displayName: "AgroTech AI Agricultural Platform",
+    description:
+      "AI-powered agricultural platform for real-time crop recommendations and precision farming optimization. Combines deep learning classification, computer vision soil health checks, and LangGraph workflow orchestration.",
+    live: "https://agro-tech-roan.vercel.app/dashboard",
+    github: "https://github.com/Krish1342/AgriTechAI",
+    tags: [
+      "React",
+      "FastAPI",
+      "Python",
+      "TensorFlow",
+      "Scikit-learn",
+      "Groq AI",
+      "OpenCV",
+      "LangGraph",
+      "PostgreSQL",
+    ],
+    highlight: true,
   },
   {
     title: "Real Estate Price Prediction",
+    displayName: "Real Estate Valuation & Explainability",
     description:
-      "Developed an AI-powered Real Estate Price Prediction platform for automated property valuation, model explainability, and real-time market insights. Built with FastAPI, React, Python, Scikit-learn, LightGBM, XGBoost, and Recharts.",
-    image:
-      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+      "AI-powered property valuation engine with model explainability (SHAP / Feature Attribution) and real-time market insights utilizing ensemble boosting algorithms.",
+    live: null,
     github: "https://github.com/Krish1342/RealEstatePricePrediction",
     tags: [
       "FastAPI",
@@ -31,59 +72,33 @@ export const projects = [
       "LightGBM",
       "XGBoost",
       "Recharts",
-      "Framer Motion",
-      "Vite",
     ],
-  },
-  {
-    title: "AgroTech AI",
-    description:
-      "AI-powered agricultural platform for crop recommendations and real-time farming optimization. Tech stack: React, Material-UI, FastAPI, Python, TensorFlow, Scikit-learn, LangGraph, PostgreSQL.",
-    image:
-      "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/Krish1342/AgriTechAI",
-    tags: [
-      "React",
-      "Material-UI",
-      "FastAPI",
-      "Python",
-      "TensorFlow",
-      "Scikit-learn",
-      "LangGraph",
-      "PostgreSQL",
-    ],
+    highlight: false,
   },
   {
     title: "PlaylistPilot",
+    displayName: "PlaylistPilot — GenAI Music Curator",
     description:
-      "An intelligent music playlist generator leveraging machine learning and the Gemini API to create personalized playlists based on user preferences, mood analysis, and listening history patterns.",
-    image:
-      "https://images.unsplash.com/photo-1504509546545-e000b4a62425?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "Intelligent music playlist generator leveraging machine learning and the Gemini API to analyze user mood patterns, listening history, and aesthetic preference vectors.",
+    live: null,
     github: "https://github.com/Krish1342/PlaylistPilot",
     tags: [
       "Python",
-      "Machine Learning",
-      "Music Analysis",
       "Gemini API",
+      "Machine Learning",
       "GenAI",
+      "NLP",
     ],
-  },
-  {
-    title: "GeminiResumeIQ - Resume Enhancer",
-    description:
-      "AI-powered resume enhancement platform using Gemini API and vector embeddings. Provides intelligent analysis, personalized feedback, and optimization suggestions to improve resume quality and ATS compatibility.",
-    image:
-      "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80",
-    github: "https://github.com/Krish1342/GeminiResumeIQ",
-    tags: ["Python", "Gemini API", "Vector Embedding", "NLP", "AI Analysis"],
+    highlight: false,
   },
   {
     title: "Stock Prediction App",
+    displayName: "Market Trend & Time-Series Analyzer",
     description:
-      "Machine learning-based application for predicting stock market trends and analyzing historical data patterns.",
-    image:
-      "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80",
+      "Machine learning application for analyzing historical equity market volatility, forecasting price patterns, and detecting trading volume anomalies.",
+    live: null,
     github: "https://github.com/Krish1342/StockPrediction",
-    tags: ["Python", "Machine Learning", "Data Analysis", "Pandas"],
+    tags: ["Python", "Machine Learning", "Pandas", "Time Series Analysis"],
+    highlight: false,
   },
 ];

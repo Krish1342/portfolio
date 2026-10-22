@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ArrowUpRight, Code, Database, ExternalLink, Github, Sparkles, Terminal, Activity } from "lucide-react";
+import { ArrowUpRight, Code, Database, ExternalLink, Github, Sparkles, Terminal, Activity, Globe } from "lucide-react";
 import { projects } from "../data/projects";
 
 export function Projects() {
@@ -34,7 +34,7 @@ export function Projects() {
 
   const activeData = datasets[selectedDataset];
   const flagship = projects[0]; // Automated_EDA
-  const secondaryProjects = projects.slice(1);
+  const otherProjects = projects.slice(1);
 
   return (
     <section id="work" className="scroll-mt-24 py-20 sm:py-28 px-6 sm:px-10 relative">
@@ -44,14 +44,14 @@ export function Projects() {
           <div>
             <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-2">
               <span className="w-2 h-2 rounded-full bg-accent" />
-              Production Software & Applied AI
+              Live Deployments & Architecture
             </div>
             <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-fg tracking-tight">
               Featured Systems.
             </h2>
           </div>
           <p className="font-sans text-sm sm:text-base text-body max-w-md leading-relaxed">
-            Every project represents end-to-end engineering — data ingestion, model inference, asynchronous Python backends, and responsive user interfaces.
+            Production-grade systems tested on real workloads — from automated exploratory analytics to cyclic RAG knowledge retrieval and agricultural ML.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export function Projects() {
                     Flagship System
                   </span>
                   <span className="font-mono text-xs text-cyber-cyan font-medium">
-                    FastAPI • Groq AI • React
+                    FastAPI • Groq AI • React • Plotly.js
                   </span>
                 </div>
 
@@ -77,7 +77,7 @@ export function Projects() {
                 </h3>
 
                 <p className="mt-4 font-sans text-sm sm:text-base text-body leading-relaxed">
-                  An intelligent data platform that turns raw CSVs and database tables into interactive, PowerBI-grade dashboards in seconds. Groq AI generates automated analytical narratives, isolates feature correlations, and powers real-time Plotly visualizations.
+                  AI-powered web application for automated data analysis and interactive PowerBI-like dashboard generation. Delivers automated data profiling, feature correlation analysis, and Groq LLM synthesis in sub-second responses.
                 </p>
 
                 {/* Tech Tags */}
@@ -93,26 +93,39 @@ export function Projects() {
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="mt-8 pt-6 border-t border-surface-border flex flex-wrap items-center gap-4">
+              {/* Action Buttons: Live Demo + GitHub */}
+              <div className="mt-8 pt-6 border-t border-surface-border flex flex-wrap items-center gap-3">
+                {flagship.live && (
+                  <a
+                    href={flagship.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-accent text-bg hover:bg-accent-hover transition-all shadow-md shadow-accent/20 flex items-center gap-2"
+                  >
+                    <Globe className="w-4 h-4" />
+                    <span>Launch Live Demo</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+
                 <a
                   href={flagship.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-5 py-2.5 rounded-xl text-xs font-semibold bg-accent text-bg hover:bg-accent-hover transition-all shadow-md shadow-accent/20 flex items-center gap-2"
+                  className="px-4 py-2.5 rounded-xl text-xs font-medium bg-surface hover:bg-surface-hover text-fg border border-surface-border transition-all flex items-center gap-2"
                 >
                   <Github className="w-4 h-4" />
-                  <span>Inspect Source Code</span>
+                  <span>Inspect Code</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </a>
 
                 <span className="font-mono text-xs text-muted">
-                  Tested on 500k+ row datasets
+                  auto-eda-pink.vercel.app
                 </span>
               </div>
             </div>
 
-            {/* Right: Live Interactive Telemetry Preview */}
+            {/* Right: Interactive Telemetry Console */}
             <div className="lg:col-span-6">
               <div className="rounded-2xl bg-bg border border-surface-border overflow-hidden shadow-2xl">
                 {/* Console Bar */}
@@ -165,7 +178,7 @@ export function Projects() {
                   </button>
                 </div>
 
-                {/* Active Dataset Telemetry Display */}
+                {/* Telemetry Display */}
                 <div className="p-5 space-y-4 font-mono text-xs">
                   <div className="flex items-center justify-between text-body border-b border-surface-border/60 pb-2">
                     <span className="text-muted">Target File:</span>
@@ -201,31 +214,48 @@ export function Projects() {
           </div>
         </div>
 
-        {/* 2. Secondary Systems Grid — High Contrast & Clear */}
+        {/* 2. Systems Grid with Live Deployment Links */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {secondaryProjects.map((project, idx) => (
+          {otherProjects.map((project, idx) => (
             <div
               key={idx}
-              className="glass-card rounded-2xl p-6 flex flex-col justify-between border border-surface-border group"
+              className={`glass-card rounded-2xl p-6 flex flex-col justify-between border transition-all ${
+                project.highlight
+                  ? "border-accent/40 shadow-lg shadow-accent/5"
+                  : "border-surface-border"
+              }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <span className="text-[11px] font-mono text-accent font-semibold px-2.5 py-1 rounded bg-accent/10 border border-accent/20">
                     System 0{idx + 2}
                   </span>
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-surface border border-surface-border text-muted group-hover:text-fg group-hover:border-accent transition-colors"
-                    aria-label={`GitHub repo for ${project.title}`}
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
+                  <div className="flex items-center gap-1.5">
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="p-2 rounded-lg bg-accent/15 border border-accent/30 text-accent hover:bg-accent hover:text-bg transition-colors"
+                        title="Live Deployment"
+                      >
+                        <Globe className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-lg bg-surface border border-surface-border text-muted hover:text-fg hover:border-accent transition-colors"
+                      title="GitHub Repository"
+                    >
+                      <Github className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
                 </div>
 
-                <h4 className="font-display font-bold text-xl text-fg group-hover:text-accent transition-colors leading-tight">
-                  {project.title}
+                <h4 className="font-display font-bold text-xl text-fg leading-tight">
+                  {project.displayName || project.title}
                 </h4>
 
                 <p className="mt-3 font-sans text-sm text-body leading-relaxed">
@@ -250,15 +280,38 @@ export function Projects() {
                   )}
                 </div>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg group-hover:text-accent transition-colors"
-                >
-                  <span>Explore Repository</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+                <div className="flex items-center justify-between">
+                  {project.live ? (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent hover:underline"
+                    >
+                      <span>Live Deployment</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-fg hover:text-accent transition-colors"
+                    >
+                      <span>Explore Source Code</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-mono text-muted hover:text-fg"
+                  >
+                    Repo ↗
+                  </a>
+                </div>
               </div>
             </div>
           ))}

@@ -152,15 +152,30 @@ export function Contact() {
               </a>
             </div>
 
-            {/* Location Pill */}
-            <div className="p-4 rounded-2xl bg-surface border border-surface-border flex items-center gap-3">
-              <div className="p-2 rounded-xl bg-bg text-accent">
-                <MapPin className="w-4 h-4" />
+            {/* Location & Phone Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="p-4 rounded-2xl bg-surface border border-surface-border flex items-center gap-3">
+                <div className="p-2 rounded-xl bg-bg text-accent shrink-0">
+                  <MapPin className="w-4 h-4" />
+                </div>
+                <div className="text-xs font-sans">
+                  <p className="text-fg font-medium">Pune, Maharashtra</p>
+                  <p className="text-muted font-mono mt-0.5">India (UTC+5:30)</p>
+                </div>
               </div>
-              <div className="text-xs font-sans">
-                <p className="text-fg font-medium">Pune, Maharashtra, India</p>
-                <p className="text-muted font-mono mt-0.5">Available for relocation & remote roles</p>
-              </div>
+
+              <a
+                href="tel:+918286331234"
+                className="p-4 rounded-2xl bg-surface border border-surface-border hover:border-accent/40 transition-colors flex items-center gap-3"
+              >
+                <div className="p-2 rounded-xl bg-bg text-cyber-emerald shrink-0">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <div className="text-xs font-sans">
+                  <p className="text-fg font-medium">+91-8286331234</p>
+                  <p className="text-muted font-mono mt-0.5">Direct Line</p>
+                </div>
+              </a>
             </div>
           </div>
 
