@@ -20,11 +20,13 @@ export default function App() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["hero", "about", "work", "skills", "experience", "contact"];
-      const scrollPos = window.scrollY + 250;
+      const header = document.querySelector("header");
+      const navOffset = header ? header.offsetHeight + 20 : 80;
+      const scrollPos = window.scrollY + navOffset;
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
-        if (el && el.offsetTop <= scrollPos) {
+        if (el && el.offsetTop <= scrollPos + 100) {
           setActiveSection(sections[i]);
           break;
         }
@@ -37,7 +39,15 @@ export default function App() {
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
     if (el) {
-      el.scrollIntoView({ behavior: "smooth" });
+      const header = document.querySelector("header");
+      const navOffset = header ? header.offsetHeight + 10 : 70;
+      const elementPosition = el.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - navOffset;
+
+      window.scrollTo({
+        top: Math.max(0, offsetPosition),
+        behavior: "smooth",
+      });
     }
   };
 

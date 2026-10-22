@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { Graph } from "@visx/network";
-import { LinearGradient } from "@visx/gradient";
-import { Cpu, Database, Network, Sparkles, Terminal, Zap } from "lucide-react";
+import { Network, Zap } from "lucide-react";
 
-// Real-world nodes representing Krish's actual tech stack pipeline
 const nodes = [
   {
     id: "input",
@@ -11,7 +8,7 @@ const nodes = [
     sub: "CSVs • API Streams",
     x: 80,
     y: 150,
-    color: "#94a3b8",
+    color: "#ff844f",
     detail: "Streaming data ingestion with automated schema detection & pandas profiling.",
     metric: "100k+ rows/sec",
   },
@@ -31,7 +28,7 @@ const nodes = [
     sub: "Agentic AI Router",
     x: 480,
     y: 80,
-    color: "#00f2fe",
+    color: "#ff6b35",
     detail: "Cyclic state graphs orchestrating multi-agent tool execution and memory retention.",
     metric: "Multi-Agent Routing",
   },
@@ -41,7 +38,7 @@ const nodes = [
     sub: "Llama-3 • Flash",
     x: 690,
     y: 120,
-    color: "#f59e0b",
+    color: "#ff844f",
     detail: "Ultra-fast LLM inference powering Automated EDA narratives and ad creatives at LegitReach.",
     metric: "500+ tokens/sec",
   },
@@ -51,7 +48,7 @@ const nodes = [
     sub: "ChromaDB • FAISS",
     x: 480,
     y: 240,
-    color: "#8b5cf6",
+    color: "#ff6b35",
     detail: "High-dimensional vector storage and semantic search powering the Personal Knowledge Agent (Second Brain) and RAG reasoning.",
     metric: "Cosine Sim r>0.92",
   },
@@ -61,7 +58,7 @@ const nodes = [
     sub: "Plotly.js • React",
     x: 710,
     y: 250,
-    color: "#10b981",
+    color: "#ff844f",
     detail: "Real-time client visualization dashboards with sub-second parameter re-rendering.",
     metric: "60 FPS Renders",
   },
@@ -87,7 +84,7 @@ export function ArchitectureGraph() {
         <div>
           <div className="inline-flex items-center gap-2 font-mono text-xs text-accent uppercase tracking-widest mb-1.5">
             <Network className="w-3.5 h-3.5" />
-            <span>Interactive System Topology (Visx)</span>
+            <span>System Pipeline & Data Topology</span>
           </div>
           <h3 className="font-display font-bold text-xl sm:text-2xl text-fg">
             How I architect AI & data pipelines.
@@ -98,13 +95,10 @@ export function ArchitectureGraph() {
         </p>
       </div>
 
-      {/* Visx Interactive SVG Canvas */}
+      {/* Visx / SVG Canvas */}
       <div className="w-full overflow-x-auto pb-2">
         <div className="min-w-[780px] h-[340px] relative select-none">
           <svg width="780" height="340" className="w-full h-full">
-            <LinearGradient id="accent-cyan" from="#ff6b35" to="#00f2fe" />
-            <LinearGradient id="cyan-amber" from="#00f2fe" to="#f59e0b" />
-
             {/* Render Links */}
             {links.map((link, i) => {
               const isConnected =
@@ -118,14 +112,14 @@ export function ArchitectureGraph() {
                     x2={link.target.x}
                     y2={link.target.y}
                     stroke={isConnected ? "#ff6b35" : "rgba(255, 255, 255, 0.12)"}
-                    strokeWidth={isConnected ? 2.5 : 1.5}
+                    strokeWidth={isConnected ? 2 : 1.2}
                     strokeDasharray={isConnected ? "none" : "4 4"}
                     className="transition-all duration-300"
                   />
                   {isConnected && (
                     <circle
                       r="3"
-                      fill="#00f2fe"
+                      fill="#ff844f"
                       className="animate-pulse"
                       cx={(link.source.x + link.target.x) / 2}
                       cy={(link.source.y + link.target.y) / 2}
@@ -149,24 +143,24 @@ export function ArchitectureGraph() {
                   {/* Outer pulse aura */}
                   {isSelected && (
                     <circle
-                      r="32"
-                      fill={node.color}
-                      opacity="0.18"
+                      r="30"
+                      fill="#ff6b35"
+                      opacity="0.15"
                       className="animate-ping"
                     />
                   )}
                   {/* Node Background */}
                   <circle
                     r="24"
-                    fill="#11131a"
-                    stroke={isSelected ? node.color : "rgba(255, 255, 255, 0.2)"}
-                    strokeWidth={isSelected ? 3 : 1.5}
+                    fill="#11131c"
+                    stroke={isSelected ? "#ff6b35" : "rgba(255, 255, 255, 0.18)"}
+                    strokeWidth={isSelected ? 2.5 : 1.5}
                     className="transition-all duration-300 group-hover:stroke-accent"
                   />
                   {/* Inner Node Dot */}
                   <circle
-                    r="6"
-                    fill={node.color}
+                    r="5"
+                    fill="#ff6b35"
                     className="transition-transform group-hover:scale-125"
                   />
 
@@ -184,7 +178,7 @@ export function ArchitectureGraph() {
                   <text
                     y="54"
                     textAnchor="middle"
-                    fill="#64748b"
+                    fill="#94a3b8"
                     fontSize="10"
                     fontFamily="JetBrains Mono"
                   >
@@ -201,10 +195,7 @@ export function ArchitectureGraph() {
       {activeNode && (
         <div className="mt-4 p-4 rounded-xl bg-surface/90 border border-surface-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="flex items-start gap-3">
-            <div
-              className="w-3 h-3 rounded-full mt-1.5 shrink-0"
-              style={{ backgroundColor: activeNode.color }}
-            />
+            <div className="w-2.5 h-2.5 rounded-full mt-1.5 shrink-0 bg-accent" />
             <div>
               <div className="flex items-center gap-2">
                 <h4 className="font-display font-bold text-sm text-fg">
@@ -220,7 +211,7 @@ export function ArchitectureGraph() {
             </div>
           </div>
 
-          <div className="shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10">
+          <div className="shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20">
             <Zap className="w-3.5 h-3.5 text-accent" />
             <span className="font-mono text-xs font-semibold text-accent">
               {activeNode.metric}

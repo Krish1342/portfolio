@@ -25,15 +25,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Subtle ambient backdrop grid */
+/* Subtle ambient backdrop illumination - strictly warm accent tone */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(255, 107, 53, 0.05) 0%, transparent 40%),
-    radial-gradient(circle at 90% 70%, rgba(0, 242, 254, 0.04) 0%, transparent 45%),
-    radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 15% 15%, rgba(255, 107, 53, 0.04) 0%, transparent 45%),
+    radial-gradient(circle at 85% 65%, rgba(255, 107, 53, 0.03) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(255, 107, 53, 0.02) 0%, transparent 55%);
   pointer-events: none;
   z-index: -1;
 }
@@ -46,7 +46,7 @@ body::before {
   background: #090a0f;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e2230;
+  background: #171a26;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -54,51 +54,25 @@ body::before {
   background: #ff6b35;
 }
 
-/* Crisp text utilities */
+/* Text gradient utility */
 .text-gradient-accent {
-  background: linear-gradient(135deg, #ffffff 15%, #ff844f 65%, #ff6b35 100%);
+  background: linear-gradient(135deg, #ffffff 20%, #ff844f 70%, #ff6b35 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient-cyan {
-  background: linear-gradient(135deg, #ffffff 20%, #4facfe 70%, #00f2fe 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Subtle glowing card utility with human-friendly border */
+/* Card utility */
 .glass-card {
-  background: rgba(17, 19, 26, 0.75);
+  background: rgba(17, 19, 28, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .glass-card:hover {
-  background: rgba(24, 27, 36, 0.9);
-  border-color: rgba(255, 107, 53, 0.3);
-  box-shadow: 0 12px 36px -12px rgba(255, 107, 53, 0.15);
-}
-
-/* Link hover line */
-.link-line {
-  position: relative;
-  display: inline-block;
-}
-.link-line::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #ff6b35;
-  transition: width 0.3s ease;
-}
-.link-line:hover::after {
-  width: 100%;
+  background: rgba(23, 26, 38, 0.9);
+  border-color: rgba(255, 107, 53, 0.28);
+  box-shadow: 0 10px 30px -10px rgba(255, 107, 53, 0.12);
 }

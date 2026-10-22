@@ -12,12 +12,11 @@ export function Contact() {
   const handleCopy = (e) => {
     navigator.clipboard.writeText(email);
     setCopied(true);
-    // Fire subtle celebratory confetti
     confetti({
-      particleCount: 35,
+      particleCount: 30,
       spread: 60,
       origin: { y: 0.8 },
-      colors: ["#ff6b35", "#00f2fe", "#f59e0b"],
+      colors: ["#ff6b35", "#ff844f", "#cbd5e1"],
     });
     setTimeout(() => setCopied(false), 2500);
   };
@@ -45,10 +44,10 @@ export function Contact() {
       setStatus({ loading: false, success: true });
       setForm({ name: "", email: "", message: "" });
       confetti({
-        particleCount: 50,
+        particleCount: 45,
         spread: 80,
         origin: { y: 0.6 },
-        colors: ["#ff6b35", "#10b981", "#00f2fe"],
+        colors: ["#ff6b35", "#ff844f", "#f8fafc"],
       });
     } catch (err) {
       console.error(err);
@@ -57,26 +56,26 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="scroll-mt-24 py-20 sm:py-28 px-6 sm:px-10 relative">
-      <div className="max-w-[1300px] mx-auto">
+    <section className="pt-4 pb-16 sm:pb-24 px-6 sm:px-10 relative">
+      <div id="contact" className="max-w-[1300px] mx-auto space-y-10">
         {/* Section Header */}
-        <div className="mb-14 text-center max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-2">
+        <div className="text-center max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-1">
             <span className="w-2 h-2 rounded-full bg-accent" />
             Let's Collaborate
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-fg tracking-tight">
+          <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-fg tracking-tight">
             Start a conversation.
           </h2>
-          <p className="mt-3 font-sans text-sm sm:text-base text-body leading-relaxed">
-            Whether you want to build an AI product, discuss a summer/fall internship opportunity, or talk agent architecture — feel free to reach out.
+          <p className="mt-2 font-sans text-xs sm:text-sm text-body leading-relaxed">
+            Whether you want to build an AI product, discuss a software engineering opportunity, or talk agent architecture — feel free to reach out.
           </p>
         </div>
 
         {/* 2-Column Responsive Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           {/* Left Column: Direct Outreach */}
-          <div className="lg:col-span-5 space-y-4">
+          <div className="lg:col-span-5 space-y-3.5">
             {/* Direct Email Card with One-Click Copy */}
             <div className="glass-card rounded-2xl p-6 border border-surface-border">
               <span className="font-mono text-xs text-muted uppercase tracking-wider block mb-2">
@@ -96,8 +95,8 @@ export function Contact() {
                 >
                   {copied ? (
                     <>
-                      <Check className="w-3.5 h-3.5 text-cyber-emerald" />
-                      <span className="text-cyber-emerald font-semibold">Copied to Clipboard!</span>
+                      <Check className="w-3.5 h-3.5 text-accent" />
+                      <span className="text-accent font-semibold">Copied to Clipboard!</span>
                     </>
                   ) : (
                     <>
@@ -129,7 +128,7 @@ export function Contact() {
                   <Github className="w-5 h-5" />
                   <span className="text-xs font-mono">/Krish1342</span>
                 </div>
-                <div className="mt-4">
+                <div className="mt-3">
                   <p className="font-display font-bold text-sm text-fg">GitHub</p>
                   <p className="font-sans text-xs text-muted mt-0.5">Repositories & Code</p>
                 </div>
@@ -145,16 +144,16 @@ export function Contact() {
                   <Linkedin className="w-5 h-5" />
                   <span className="text-xs font-mono">/krish-lodha</span>
                 </div>
-                <div className="mt-4">
+                <div className="mt-3">
                   <p className="font-display font-bold text-sm text-fg">LinkedIn</p>
                   <p className="font-sans text-xs text-muted mt-0.5">Professional Network</p>
                 </div>
               </a>
             </div>
 
-            {/* Location & Phone Cards */}
+            {/* Location & Direct Line Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="p-4 rounded-2xl bg-surface border border-surface-border flex items-center gap-3">
+              <div className="p-3.5 rounded-2xl bg-surface border border-surface-border flex items-center gap-3">
                 <div className="p-2 rounded-xl bg-bg text-accent shrink-0">
                   <MapPin className="w-4 h-4" />
                 </div>
@@ -166,9 +165,9 @@ export function Contact() {
 
               <a
                 href="tel:+918286331234"
-                className="p-4 rounded-2xl bg-surface border border-surface-border hover:border-accent/40 transition-colors flex items-center gap-3"
+                className="p-3.5 rounded-2xl bg-surface border border-surface-border hover:border-accent/40 transition-colors flex items-center gap-3"
               >
-                <div className="p-2 rounded-xl bg-bg text-cyber-emerald shrink-0">
+                <div className="p-2 rounded-xl bg-bg text-accent shrink-0">
                   <Sparkles className="w-4 h-4" />
                 </div>
                 <div className="text-xs font-sans">
@@ -180,25 +179,25 @@ export function Contact() {
           </div>
 
           {/* Right Column: Direct Message Form */}
-          <div className="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-8 border border-surface-border">
-            <h3 className="font-display font-bold text-xl text-fg mb-1">
-              Send a quick message
+          <div className="lg:col-span-7 glass-card rounded-3xl p-6 sm:p-7 border border-surface-border">
+            <h3 className="font-display font-bold text-lg text-fg mb-1">
+              Send a direct message
             </h3>
-            <p className="font-sans text-xs sm:text-sm text-body mb-6">
+            <p className="font-sans text-xs text-body mb-5">
               Drop a note and I will get back to you within 24 hours.
             </p>
 
             {status.success && (
-              <div className="mb-6 p-4 rounded-xl bg-cyber-emerald/15 border border-cyber-emerald/30 text-cyber-emerald text-sm flex items-center gap-2">
+              <div className="mb-5 p-3.5 rounded-xl bg-accent/15 border border-accent/30 text-accent text-xs flex items-center gap-2">
                 <Check className="w-4 h-4 shrink-0" />
                 <span>Message received! Thank you, I'll follow up shortly.</span>
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <form onSubmit={handleSubmit} className="space-y-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
                 <div>
-                  <label className="block text-xs font-mono text-muted mb-1.5">
+                  <label className="block text-xs font-mono text-muted mb-1">
                     Your Name
                   </label>
                   <input
@@ -207,11 +206,11 @@ export function Contact() {
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     placeholder="Alex Morgan"
-                    className="w-full px-4 py-2.5 rounded-xl bg-surface border border-surface-border text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-3.5 py-2 rounded-xl bg-surface border border-surface-border text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-mono text-muted mb-1.5">
+                  <label className="block text-xs font-mono text-muted mb-1">
                     Your Email
                   </label>
                   <input
@@ -220,13 +219,13 @@ export function Contact() {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     placeholder="alex@company.com"
-                    className="w-full px-4 py-2.5 rounded-xl bg-surface border border-surface-border text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors"
+                    className="w-full px-3.5 py-2 rounded-xl bg-surface border border-surface-border text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-xs font-mono text-muted mb-1.5">
+                <label className="block text-xs font-mono text-muted mb-1">
                   Message
                 </label>
                 <textarea
@@ -235,14 +234,14 @@ export function Contact() {
                   value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })}
                   placeholder="Tell me about your project or opportunity..."
-                  className="w-full px-4 py-2.5 rounded-xl bg-surface border border-surface-border text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors resize-none"
+                  className="w-full px-3.5 py-2 rounded-xl bg-surface border border-surface-border text-sm text-fg placeholder:text-muted/60 focus:outline-none focus:border-accent transition-colors resize-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={status.loading}
-                className="w-full sm:w-auto px-6 py-3 rounded-xl text-xs font-semibold bg-accent text-bg hover:bg-accent-hover transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-semibold bg-accent text-bg hover:bg-accent-hover transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
               >
                 {status.loading ? (
                   <span>Sending message...</span>

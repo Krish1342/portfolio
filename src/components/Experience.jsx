@@ -1,34 +1,34 @@
 import React from "react";
-import { Briefcase, Calendar, Trophy, Award, MapPin, CheckCircle2, Sparkles, ExternalLink } from "lucide-react";
+import { Briefcase, Calendar, Trophy, Award, MapPin } from "lucide-react";
 import { experience, certifications, volunteering } from "../data/experience";
 
 export function Experience() {
   return (
-    <section id="experience" className="scroll-mt-24 py-20 sm:py-28 px-6 sm:px-10 relative">
-      <div className="max-w-[1300px] mx-auto space-y-16">
+    <section className="pt-4 pb-16 sm:pb-24 px-6 sm:px-10 relative">
+      <div id="experience" className="max-w-[1300px] mx-auto space-y-12">
         {/* Section Header */}
         <div>
-          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-2">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-1">
             <span className="w-2 h-2 rounded-full bg-accent" />
             Track Record & Professional Background
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-fg tracking-tight">
+          <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-fg tracking-tight">
             Work Experience.
           </h2>
-          <p className="mt-3 font-sans text-sm sm:text-base text-body max-w-xl">
+          <p className="mt-2 font-sans text-xs sm:text-sm text-body max-w-xl">
             Hands-on software and AI engineering across computer vision systems, generative creative engines, and internal annotation platforms.
           </p>
         </div>
 
         {/* 1. Core Industry Experience Timeline */}
-        <div className="relative pl-6 sm:pl-8 border-l border-surface-border space-y-10">
+        <div className="relative pl-6 sm:pl-8 border-l border-surface-border space-y-8">
           {experience.map((item, idx) => (
             <div key={idx} className="relative group">
               {/* Timeline Marker */}
               <div
                 className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-bg border-2 transition-colors flex items-center justify-center ${
                   item.isCurrent
-                    ? "border-accent shadow-[0_0_12px_rgba(255,107,53,0.5)]"
+                    ? "border-accent shadow-[0_0_12px_rgba(255,107,53,0.4)]"
                     : "border-surface-border group-hover:border-accent"
                 }`}
               >
@@ -40,19 +40,19 @@ export function Experience() {
               </div>
 
               {/* Experience Card */}
-              <div className="glass-card rounded-2xl p-6 sm:p-8 border border-surface-border">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+              <div className="glass-card rounded-2xl p-6 sm:p-7 border border-surface-border">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 rounded-xl bg-surface border border-surface-border text-accent">
+                    <div className="p-2 rounded-xl bg-surface border border-surface-border text-accent">
                       <Briefcase className="w-5 h-5" />
                     </div>
                     <div>
                       <div className="flex items-center gap-2">
-                        <h3 className="font-display font-bold text-xl sm:text-2xl text-fg leading-tight">
+                        <h3 className="font-display font-bold text-lg sm:text-xl text-fg leading-tight">
                           {item.title}
                         </h3>
                         {item.isCurrent && (
-                          <span className="font-mono text-[10px] font-semibold text-cyber-emerald bg-cyber-emerald/10 border border-cyber-emerald/20 px-2 py-0.5 rounded-full">
+                          <span className="font-mono text-[10px] font-semibold text-accent bg-accent/10 border border-accent/20 px-2 py-0.5 rounded-full">
                             Active
                           </span>
                         )}
@@ -74,12 +74,12 @@ export function Experience() {
                   </div>
                 </div>
 
-                <p className="font-sans text-sm sm:text-base text-body leading-relaxed max-w-3xl">
+                <p className="font-sans text-xs sm:text-sm text-body leading-relaxed max-w-3xl">
                   {item.description}
                 </p>
 
                 {/* Tech Tags */}
-                <div className="mt-5 pt-4 border-t border-surface-border flex flex-wrap gap-2">
+                <div className="mt-4 pt-3 border-t border-surface-border flex flex-wrap gap-1.5">
                   {item.tags.map((tag, tIdx) => (
                     <span
                       key={tIdx}
@@ -95,9 +95,9 @@ export function Experience() {
         </div>
 
         {/* 2. Industry Certifications Grid */}
-        <div className="pt-6">
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyber-cyan mb-4">
-            <Award className="w-4 h-4" />
+        <div className="pt-4">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-3">
+            <Award className="w-4 h-4 text-accent" />
             <span>Verified Certifications & Simulations</span>
           </div>
 
@@ -108,8 +108,8 @@ export function Experience() {
                 className="glass-card rounded-2xl p-5 border border-surface-border flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-cyber-cyan/10 text-cyber-cyan border border-cyber-cyan/20">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono font-semibold bg-accent/10 text-accent border border-accent/20">
                       {cert.issuer}
                     </span>
                     <span className="font-mono text-[10px] text-muted">
@@ -120,7 +120,7 @@ export function Experience() {
                     {cert.title}
                   </h4>
                 </div>
-                <p className="font-mono text-[11px] text-accent mt-3">
+                <p className="font-mono text-[11px] text-muted mt-3">
                   {cert.category}
                 </p>
               </div>
@@ -128,21 +128,21 @@ export function Experience() {
           </div>
         </div>
 
-        {/* 3. Leadership & Community Timeline */}
-        <div className="pt-6">
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-cyber-amber mb-4">
-            <Trophy className="w-4 h-4" />
+        {/* 3. Leadership & Community */}
+        <div className="pt-4">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-3">
+            <Trophy className="w-4 h-4 text-accent" />
             <span>Technical Leadership & Campus Community</span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {volunteering.map((item, vIdx) => (
               <div
                 key={vIdx}
-                className="glass-card rounded-2xl p-6 border border-surface-border flex flex-col justify-between"
+                className="glass-card rounded-2xl p-5 sm:p-6 border border-surface-border flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="flex items-center justify-between gap-2 mb-2">
                     <span className="font-mono text-xs text-accent font-semibold">
                       {item.event}
                     </span>
@@ -150,7 +150,7 @@ export function Experience() {
                       {item.date}
                     </span>
                   </div>
-                  <h4 className="font-display font-bold text-lg text-fg mb-2">
+                  <h4 className="font-display font-bold text-base sm:text-lg text-fg mb-1.5">
                     {item.title}
                   </h4>
                   <p className="font-sans text-xs sm:text-sm text-body leading-relaxed">

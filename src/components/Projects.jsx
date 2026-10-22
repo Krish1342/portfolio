@@ -7,25 +7,25 @@ export function Projects() {
   const secondaryProjects = projects.filter((p) => !p.highlight);
 
   return (
-    <section id="work" className="scroll-mt-24 py-20 sm:py-28 px-6 sm:px-10 relative">
-      <div className="max-w-[1300px] mx-auto space-y-14">
+    <section className="pt-4 pb-16 sm:pb-24 px-6 sm:px-10 relative">
+      <div id="work" className="max-w-[1300px] mx-auto space-y-8">
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
-            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-2">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-1">
               <span className="w-2 h-2 rounded-full bg-accent" />
               Live Deployments & Architecture
             </div>
-            <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-fg tracking-tight">
+            <h2 className="font-display font-extrabold text-2xl sm:text-4xl text-fg tracking-tight">
               Featured Systems.
             </h2>
           </div>
-          <p className="font-sans text-sm sm:text-base text-body max-w-md leading-relaxed">
+          <p className="font-sans text-xs sm:text-sm text-body max-w-md leading-relaxed">
             Production-grade systems tested on real workloads — from automated exploratory analytics to cyclic RAG knowledge retrieval and agricultural ML.
           </p>
         </div>
 
-        {/* 1. Primary Highlighted Systems (From Resume with Live Deployments) */}
+        {/* 1. Primary Highlighted Systems */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {featuredProjects.map((project, idx) => (
             <div
@@ -126,7 +126,7 @@ export function Projects() {
 
         {/* 2. Secondary Systems Grid */}
         <div>
-          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted mb-6">
+          <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted mb-4">
             <Sparkles className="w-3.5 h-3.5 text-accent" />
             <span>Additional Machine Learning & Full-Stack Projects</span>
           </div>
@@ -190,7 +190,7 @@ export function Projects() {
         </div>
 
         {/* GitHub Deep Link */}
-        <div className="pt-4 text-center">
+        <div className="pt-2 text-center">
           <a
             href="https://github.com/Krish1342?tab=repositories"
             target="_blank"

@@ -20,33 +20,29 @@ export function NeuralHeroCanvas() {
     };
     window.addEventListener("resize", handleResize);
 
-    // Particle nodes configuration
-    const nodeCount = Math.min(Math.floor((width * height) / 14000), 55);
+    const nodeCount = Math.min(Math.floor((width * height) / 15000), 45);
     const nodes = [];
-    const mouse = { x: -1000, y: -1000, radius: 140 };
+    const mouse = { x: -1000, y: -1000, radius: 130 };
 
     for (let i = 0; i < nodeCount; i++) {
       nodes.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        radius: Math.random() * 2 + 1.5,
-        baseAlpha: Math.random() * 0.5 + 0.3,
-        color: Math.random() > 0.3 ? "#ff6b35" : "#00f2fe",
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        radius: Math.random() * 1.8 + 1.2,
+        baseAlpha: Math.random() * 0.4 + 0.25,
       });
     }
 
-    // Pulses moving along synapses
     const pulses = [];
-    const createPulse = (from, to, color) => {
-      if (pulses.length > 12) return;
+    const createPulse = (from, to) => {
+      if (pulses.length > 8) return;
       pulses.push({
         from,
         to,
         progress: 0,
-        speed: 0.015 + Math.random() * 0.02,
-        color,
+        speed: 0.015 + Math.random() * 0.015,
       });
     };
 
@@ -64,43 +60,39 @@ export function NeuralHeroCanvas() {
     window.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
 
-    // Animation Loop with GSAP Ticker
     const tick = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Update and draw nodes
+      // Nodes
       for (let i = 0; i < nodes.length; i++) {
         const n = nodes[i];
         n.x += n.vx;
         n.y += n.vy;
 
-        // Bounce on boundaries
         if (n.x < 0 || n.x > width) n.vx *= -1;
         if (n.y < 0 || n.y > height) n.vy *= -1;
 
-        // Mouse interaction
         const dxMouse = mouse.x - n.x;
         const dyMouse = mouse.y - n.y;
         const distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
         if (distMouse < mouse.radius) {
           const force = (mouse.radius - distMouse) / mouse.radius;
-          n.x -= (dxMouse / distMouse) * force * 1.5;
-          n.y -= (dyMouse / distMouse) * force * 1.5;
+          n.x -= (dxMouse / distMouse) * force * 1.2;
+          n.y -= (dyMouse / distMouse) * force * 1.2;
         }
 
-        // Draw node
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-        ctx.fillStyle = n.color;
+        ctx.fillStyle = "#ff6b35";
         ctx.globalAlpha = n.baseAlpha;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = n.color;
+        ctx.shadowBlur = 8;
+        ctx.shadowColor = "#ff6b35";
         ctx.fill();
         ctx.shadowBlur = 0;
       }
 
-      // Draw synaptic connections
-      const maxDist = 130;
+      // Synapses
+      const maxDist = 125;
       for (let i = 0; i < nodes.length; i++) {
         for (let j = i + 1; j < nodes.length; j++) {
           const a = nodes[i];
@@ -110,39 +102,38 @@ export function NeuralHeroCanvas() {
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxDist) {
-            const alpha = (1 - dist / maxDist) * 0.25;
+            const alpha = (1 - dist / maxDist) * 0.2;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = a.color;
+            ctx.strokeStyle = "#ff6b35";
             ctx.globalAlpha = alpha;
             ctx.lineWidth = 1;
             ctx.stroke();
 
-            // Chance to spawn an energetic pulse
             if (Math.random() < 0.001) {
-              createPulse(a, b, a.color);
+              createPulse(a, b);
             }
           }
         }
 
-        // Connect to mouse cursor
+        // Mouse connection
         const dxM = mouse.x - nodes[i].x;
         const dyM = mouse.y - nodes[i].y;
         const distM = Math.sqrt(dxM * dxM + dyM * dyM);
         if (distM < mouse.radius) {
-          const alphaM = (1 - distM / mouse.radius) * 0.45;
+          const alphaM = (1 - distM / mouse.radius) * 0.35;
           ctx.beginPath();
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(mouse.x, mouse.y);
           ctx.strokeStyle = "#ff6b35";
           ctx.globalAlpha = alphaM;
-          ctx.lineWidth = 1.2;
+          ctx.lineWidth = 1;
           ctx.stroke();
         }
       }
 
-      // Update and draw pulses
+      // Pulses
       for (let i = pulses.length - 1; i >= 0; i--) {
         const p = pulses[i];
         p.progress += p.speed;
@@ -156,11 +147,11 @@ export function NeuralHeroCanvas() {
         const py = p.from.y + (p.to.y - p.from.y) * p.progress;
 
         ctx.beginPath();
-        ctx.arc(px, py, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = p.color;
-        ctx.globalAlpha = 0.8;
-        ctx.shadowBlur = 12;
-        ctx.shadowColor = p.color;
+        ctx.arc(px, py, 2, 0, Math.PI * 2);
+        ctx.fillStyle = "#ff844f";
+        ctx.globalAlpha = 0.75;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = "#ff6b35";
         ctx.fill();
         ctx.shadowBlur = 0;
       }
