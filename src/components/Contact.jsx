@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Check, Copy, Github, Linkedin, Mail, MapPin, Send, Sparkles } from "lucide-react";
+import { Check, Copy, Github, Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import confetti from "canvas-confetti";
 import emailjs from "@emailjs/browser";
 
@@ -168,7 +168,7 @@ export function Contact() {
                 className="p-3.5 rounded-2xl bg-surface border border-surface-border hover:border-accent/40 transition-colors flex items-center gap-3"
               >
                 <div className="p-2 rounded-xl bg-bg text-accent shrink-0">
-                  <Sparkles className="w-4 h-4" />
+                  <Phone className="w-4 h-4" />
                 </div>
                 <div className="text-xs font-sans">
                   <p className="text-fg font-medium">+91-8286331234</p>

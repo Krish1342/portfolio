@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowUpRight, ExternalLink, Github, Globe, Sparkles } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github, Globe, FolderGit2 } from "lucide-react";
 import { projects } from "../data/projects";
 
 export function Projects() {
@@ -127,7 +127,7 @@ export function Projects() {
         {/* 2. Secondary Systems Grid */}
         <div>
           <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-muted mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-accent" />
+            <FolderGit2 className="w-3.5 h-3.5 text-accent" />
             <span>Additional Machine Learning & Full-Stack Projects</span>
           </div>
 

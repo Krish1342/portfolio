@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { Brain, Code, Cpu, Database, Layers, Sparkles, Terminal } from "lucide-react";
+import { Binary, Code, Code2, Database, Layers, Terminal } from "lucide-react";
 import { skills } from "../data/skills";
 import { ArchitectureGraph } from "./ArchitectureGraph";
 
 const categoryIcons = {
-  "AI & Generative Engineering": <Brain className="w-4 h-4 text-accent" />,
+  "AI & Generative Engineering": <Binary className="w-4 h-4 text-accent" />,
   "Full-Stack & Systems": <Code className="w-4 h-4 text-accent" />,
   "Data Engineering & Analytics": <Database className="w-4 h-4 text-accent" />,
   "Databases & Storage": <Layers className="w-4 h-4 text-accent" />,
-  "Programming Languages": <Cpu className="w-4 h-4 text-accent" />,
+  "Programming Languages": <Code2 className="w-4 h-4 text-accent" />,
   "DevOps & Developer Tools": <Terminal className="w-4 h-4 text-accent" />,
 };
 
@@ -53,7 +53,7 @@ export function Skills() {
                       : "bg-surface text-muted hover:text-fg hover:bg-surface-hover border border-surface-border"
                   }`}
                 >
-                  {categoryIcons[cat.name] || <Sparkles className="w-3.5 h-3.5 text-accent" />}
+                  {categoryIcons[cat.name] || <Terminal className="w-3.5 h-3.5 text-accent" />}
                   <span>{cat.name}</span>
                 </button>
               );

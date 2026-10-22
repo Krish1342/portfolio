@@ -24,13 +24,13 @@ export function Footer({ scrollToSection }) {
   return (
     <footer className="py-12 border-t border-surface-border bg-bg px-6 sm:px-10 relative">
       <div className="max-w-[1300px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-surface border border-surface-border flex items-center justify-center">
-            <span className="font-display font-bold text-xs text-accent">KL</span>
-          </div>
+        <div className="flex items-center gap-2.5">
+          <span className="font-mono text-xs text-accent font-bold px-2 py-0.5 rounded bg-surface border border-surface-border">
+            &gt;_
+          </span>
           <div>
             <p className="font-display font-semibold text-xs text-fg">
-              Krish Lodha
+              krish.lodha
             </p>
             <p className="font-mono text-[11px] text-muted">
               Pune, India • {time || "Live"} IST

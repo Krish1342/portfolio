@@ -38,22 +38,20 @@ export function Navbar({ activeSection, scrollToSection }) {
         }`}
       >
         <div className="max-w-[1300px] mx-auto px-6 sm:px-10 flex items-center justify-between">
-          {/* Brand Logo */}
+          {/* Brand Logo - Developer Identity */}
           <button
             onClick={() => handleNavClick("hero")}
             className="group flex items-center gap-2.5 text-left focus:outline-none cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-xl bg-surface border border-surface-border flex items-center justify-center group-hover:border-accent transition-colors shadow-md">
-              <span className="font-display font-extrabold text-base text-fg">
-                K<span className="text-accent">L</span>
-              </span>
-            </div>
+            <span className="font-mono text-sm text-accent font-bold px-2 py-1 rounded-md bg-surface border border-surface-border group-hover:border-accent transition-colors">
+              &gt;_
+            </span>
             <div className="hidden sm:block">
-              <p className="font-display font-bold text-sm text-fg leading-tight">
-                Krish Lodha
+              <p className="font-display font-bold text-sm text-fg tracking-tight group-hover:text-accent transition-colors leading-tight">
+                krish<span className="text-muted font-normal">.lodha</span>
               </p>
               <p className="font-mono text-[10px] text-muted">
-                AI & Systems Engineer
+                software & ai engineer
               </p>
             </div>
           </button>

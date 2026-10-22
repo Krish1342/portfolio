@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, ArrowUpRight, Github, Linkedin, Sparkles, Terminal } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Github, Linkedin, Terminal, Workflow, Code2 } from "lucide-react";
 import { NeuralHeroCanvas } from "./NeuralHeroCanvas";
 
 export function Hero({ scrollToSection }) {
@@ -54,7 +54,7 @@ export function Hero({ scrollToSection }) {
             onClick={() => scrollToSection("architecture")}
             className="px-6 py-3 rounded-xl text-sm font-medium bg-surface hover:bg-surface-hover text-fg border border-surface-border transition-all flex items-center gap-2 cursor-pointer"
           >
-            <Sparkles className="w-4 h-4 text-accent" />
+            <Workflow className="w-4 h-4 text-accent" />
             <span>Architecture Topology</span>
           </button>
 
@@ -88,7 +88,7 @@ export function Hero({ scrollToSection }) {
           </div>
           <span className="text-surface-border">•</span>
           <div className="flex items-center gap-2 text-body">
-            <Sparkles className="w-3.5 h-3.5 text-accent" />
+            <Code2 className="w-3.5 h-3.5 text-accent" />
             <span>LangGraph • LangChain • ChromaDB • Groq</span>
           </div>
           <span className="text-surface-border">•</span>

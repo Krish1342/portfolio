@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Network, Zap } from "lucide-react";
+import { Network, Activity } from "lucide-react";
 
 const nodes = [
   {
@@ -212,7 +212,7 @@ export function ArchitectureGraph() {
           </div>
 
           <div className="shrink-0 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-accent/10 border border-accent/20">
-            <Zap className="w-3.5 h-3.5 text-accent" />
+            <Activity className="w-3.5 h-3.5 text-accent" />
             <span className="font-mono text-xs font-semibold text-accent">
               {activeNode.metric}
             </span>
