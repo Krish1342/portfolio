@@ -4,8 +4,8 @@ import { LoadingScreen } from "./components/LoadingScreen";
 import { CustomCursor } from "./components/CustomCursor";
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
-import { Projects } from "./components/Projects";
 import { About } from "./components/About";
+import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { Experience } from "./components/Experience";
 import { Contact } from "./components/Contact";
@@ -19,8 +19,9 @@ export default function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["hero", "work", "about", "skills", "contact"];
-      const scrollPos = window.scrollY + 300;
+      const sections = ["hero", "about", "work", "skills", "experience", "contact"];
+      const scrollPos = window.scrollY + 250;
+
       for (let i = sections.length - 1; i >= 0; i--) {
         const el = document.getElementById(sections[i]);
         if (el && el.offsetTop <= scrollPos) {
@@ -35,7 +36,9 @@ export default function App() {
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -51,8 +54,8 @@ export default function App() {
           <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
           <main>
             <Hero scrollToSection={scrollToSection} />
-            <Projects />
             <About />
+            <Projects />
             <Skills />
             <Experience />
             <Contact />

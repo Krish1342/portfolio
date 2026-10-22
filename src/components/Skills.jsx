@@ -1,119 +1,94 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
+import { Brain, Code, Cpu, Database, Layers, Sparkles, Terminal } from "lucide-react";
+import { skills } from "../data/skills";
+import { ArchitectureGraph } from "./ArchitectureGraph";
 
-/*
-  Skills section — NO cards, NO grids of pills.
-  Two opposing infinite marquee ribbons of raw tech names.
-  Below that, a clean two-column breakdown: category name left, skills right as flowing text.
-*/
-
-const row1 = [
-  "Python", "React", "FastAPI", "TensorFlow", "LangGraph", "Gemini API",
-  "PostgreSQL", "Plotly.js", "Pandas", "Scikit-learn", "XGBoost", "LightGBM",
-  "Next.js", "Tailwind CSS", "Vite", "Node.js",
-];
-
-const row2 = [
-  "Meta Ads API", "Groq AI", "OpenCV", "MongoDB", "Streamlit", "NumPy",
-  "Docker", "Hugging Face", "Keras", "Flask", "Django", "Material-UI",
-  "LangChain", "C++", "TypeScript", "Git",
-];
-
-const categories = [
-  {
-    name: "AI & Machine Learning",
-    items: "TensorFlow, Keras, Scikit-learn, XGBoost, LightGBM, LangGraph, LangChain, Gemini API, Groq AI, OpenCV, Hugging Face, NLP, Reinforcement Learning",
-  },
-  {
-    name: "Full-Stack Development",
-    items: "React, Next.js, Vite, Tailwind CSS, Material-UI, Node.js, Express.js, FastAPI, Flask, Django, REST APIs",
-  },
-  {
-    name: "Data Engineering",
-    items: "Python, Pandas, NumPy, Plotly, Matplotlib, Seaborn, PostgreSQL, MongoDB, MySQL, SQLite, Statistical Analysis",
-  },
-  {
-    name: "Infrastructure & Tools",
-    items: "Git, GitHub, Docker, VS Code, PyCharm, Jupyter, Streamlit, Google Colab, Terminal, npm/Yarn",
-  },
-];
+const categoryIcons = {
+  "Web Development": <Code className="w-4 h-4 text-accent" />,
+  "Data Science": <Database className="w-4 h-4 text-cyber-cyan" />,
+  "Artificial Intelligence": <Brain className="w-4 h-4 text-cyber-emerald" />,
+  "Tools & Platforms": <Terminal className="w-4 h-4 text-cyber-amber" />,
+  "Programming Languages": <Cpu className="w-4 h-4 text-cyber-violet" />,
+  "Tools & Technologies": <Layers className="w-4 h-4 text-accent" />,
+};
 
 export function Skills() {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.1 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+  const [activeCategory, setActiveCategory] = useState(0);
 
   return (
-    <section id="skills" ref={ref} className="py-24 sm:py-36 relative overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 mb-16">
-        <p className="font-mono text-xs text-muted uppercase tracking-[0.3em] mb-3">
-          Capabilities
-        </p>
-        <h2 className="font-heading font-extrabold text-4xl sm:text-6xl text-fg tracking-tight">
-          What I work with.
-        </h2>
-      </div>
-
-      {/* Infinite scrolling marquee ribbons — pure CSS, no cards */}
-      <div className="space-y-4 py-8">
-        {/* Row 1 → left */}
-        <div className="flex w-max animate-marquee-left hover:[animation-play-state:paused]">
-          {[...row1, ...row1].map((item, i) => (
-            <span key={i} className="flex-shrink-0 px-6 py-3 font-heading font-bold text-lg sm:text-xl text-[#1a1a1a] hover:text-accent transition-colors duration-300 cursor-default select-none whitespace-nowrap">
-              {item}
-            </span>
-          ))}
+    <section id="skills" className="scroll-mt-24 py-20 sm:py-28 px-6 sm:px-10 relative">
+      <div className="max-w-[1300px] mx-auto space-y-16">
+        {/* Section Header */}
+        <div>
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-2">
+            <span className="w-2 h-2 rounded-full bg-accent" />
+            Technical Stack & Applied Knowledge
+          </div>
+          <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-fg tracking-tight">
+            Capabilities & Core Tooling.
+          </h2>
+          <p className="mt-3 font-sans text-sm sm:text-base text-body max-w-xl">
+            A comprehensive matrix of frameworks, databases, and machine learning libraries I use to build scalable products.
+          </p>
         </div>
 
-        {/* Row 2 → right */}
-        <div className="flex w-max animate-marquee-right hover:[animation-play-state:paused]">
-          {[...row2, ...row2].map((item, i) => (
-            <span key={i} className="flex-shrink-0 px-6 py-3 font-heading font-bold text-lg sm:text-xl text-[#1a1a1a] hover:text-accent transition-colors duration-300 cursor-default select-none whitespace-nowrap">
-              {item}
-            </span>
-          ))}
+        {/* 1. Interactive Visx Topology Sub-section */}
+        <div id="architecture" className="scroll-mt-24">
+          <ArchitectureGraph />
         </div>
-      </div>
 
-      {/* Structured Breakdown — no cards, just two-column text rows */}
-      <div className={`max-w-[1400px] mx-auto px-6 sm:px-10 mt-16`}>
-        {categories.map((cat, idx) => (
-          <div
-            key={idx}
-            className={`grid grid-cols-1 md:grid-cols-12 gap-4 py-8 transition-all duration-700 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
-            style={{ transitionDelay: `${idx * 100}ms` }}
-          >
-            {/* Category label on left */}
-            <div className="md:col-span-4">
-              <h3 className="font-heading font-bold text-lg sm:text-xl text-fg">
-                {cat.name}
+        {/* 2. Structured Skills Matrix */}
+        <div className="glass-card rounded-3xl p-6 sm:p-8 border border-surface-border">
+          {/* Category Tabs */}
+          <div className="flex flex-wrap gap-2 pb-6 border-b border-surface-border">
+            {skills.map((cat, idx) => {
+              const isSelected = activeCategory === idx;
+              return (
+                <button
+                  key={idx}
+                  onClick={() => setActiveCategory(idx)}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium transition-all cursor-pointer ${
+                    isSelected
+                      ? "bg-accent text-bg font-semibold shadow-md shadow-accent/20"
+                      : "bg-surface text-muted hover:text-fg hover:bg-surface-hover border border-surface-border"
+                  }`}
+                >
+                  {categoryIcons[cat.name] || <Sparkles className="w-3.5 h-3.5" />}
+                  <span>{cat.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Category Display */}
+          <div className="pt-6">
+            <div className="mb-6">
+              <h3 className="font-display font-bold text-xl text-fg">
+                {skills[activeCategory].name}
               </h3>
-            </div>
-
-            {/* Skills as flowing prose text on right */}
-            <div className="md:col-span-8">
-              <p className="font-body text-muted text-sm sm:text-base leading-relaxed">
-                {cat.items}
+              <p className="font-sans text-sm text-body mt-1">
+                {skills[activeCategory].description}
               </p>
             </div>
 
-            {/* Divider */}
-            {idx < categories.length - 1 && (
-              <div className="md:col-span-12 pt-0">
-                <div className="divider" />
-              </div>
-            )}
+            {/* Tags Cloud */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              {skills[activeCategory].skills.map((skill, sIdx) => (
+                <div
+                  key={sIdx}
+                  className="p-3.5 rounded-xl bg-surface/90 border border-surface-border hover:border-accent/40 hover:bg-surface-hover transition-all flex flex-col justify-between group"
+                >
+                  <span className="font-mono text-xs text-fg font-medium group-hover:text-accent transition-colors">
+                    {skill.name}
+                  </span>
+                  <span className="text-[10px] font-mono text-muted mt-2">
+                    {skill.category}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </div>
       </div>
     </section>
   );

@@ -1,76 +1,82 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
+import { Briefcase, Calendar, Trophy, CheckCircle2 } from "lucide-react";
 import { experience, volunteering } from "../data/experience";
 
-/*
-  Experience — NOT cards. NOT a generic timeline with dots.
-  Each entry is a full-width row: date on left, rest on right.
-  Separated by dividers. Clean editorial layout.
-*/
-
 export function Experience() {
-  const all = [
-    ...experience.map((e) => ({ ...e, kind: "work" })),
-    ...volunteering.map((v) => ({ ...v, kind: "community" })),
+  const allMilestones = [
+    ...experience.map((e) => ({ ...e, isWork: true })),
+    ...volunteering.map((v) => ({ ...v, isWork: false })),
   ];
 
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-
   return (
-    <section ref={ref} className="py-24 sm:py-36 px-6 sm:px-10">
-      <div className="max-w-[1400px] mx-auto">
-        <p className="font-mono text-xs text-muted uppercase tracking-[0.3em] mb-3">
-          Experience
-        </p>
-        <h2 className="font-heading font-extrabold text-4xl sm:text-6xl text-fg tracking-tight">
-          Where I've been.
-        </h2>
+    <section id="experience" className="scroll-mt-24 py-20 sm:py-28 px-6 sm:px-10 relative">
+      <div className="max-w-[1300px] mx-auto">
+        {/* Section Header */}
+        <div className="mb-14">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-accent mb-2">
+            <span className="w-2 h-2 rounded-full bg-accent" />
+            Track Record & Technical Leadership
+          </div>
+          <h2 className="font-display font-extrabold text-3xl sm:text-5xl text-fg tracking-tight">
+            Work Experience.
+          </h2>
+          <p className="mt-3 font-sans text-sm sm:text-base text-body max-w-xl">
+            Practical experience engineering generative models, client platforms, and directing technical event infrastructure.
+          </p>
+        </div>
 
-        <div className="mt-16">
-          {all.map((item, idx) => (
-            <div
-              key={idx}
-              className={`transition-all duration-700 ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${idx * 120}ms` }}
-            >
-              <div className="divider" />
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 py-10 sm:py-14 group">
-                {/* Left column — date + type */}
-                <div className="md:col-span-3">
-                  <p className="font-mono text-xs text-muted">{item.date}</p>
-                  <p className="font-mono text-xs text-accent mt-1 uppercase tracking-wider">
-                    {item.kind === "work" ? "Internship" : "Community"}
-                  </p>
+        {/* Timeline List */}
+        <div className="relative pl-6 sm:pl-8 border-l border-surface-border space-y-10">
+          {allMilestones.map((item, idx) => (
+            <div key={idx} className="relative group">
+              {/* Timeline Marker */}
+              <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-bg border-2 border-surface-border group-hover:border-accent transition-colors flex items-center justify-center">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent group-hover:scale-125 transition-transform" />
+              </div>
+
+              {/* Experience Card */}
+              <div className="glass-card rounded-2xl p-6 sm:p-8 border border-surface-border">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-3">
+                    <div className="p-2.5 rounded-xl bg-surface border border-surface-border text-accent">
+                      {item.isWork ? (
+                        <Briefcase className="w-5 h-5" />
+                      ) : (
+                        <Trophy className="w-5 h-5 text-cyber-cyan" />
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-xl sm:text-2xl text-fg leading-tight">
+                        {item.title}
+                      </h3>
+                      <p className="font-sans text-sm text-accent font-semibold mt-0.5">
+                        {item.event}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface border border-surface-border font-mono text-xs text-muted w-fit">
+                    <Calendar className="w-3.5 h-3.5 text-accent" />
+                    <span>{item.date}</span>
+                  </div>
                 </div>
 
-                {/* Right column — title, company, description */}
-                <div className="md:col-span-9">
-                  <h3 className="font-heading font-bold text-xl sm:text-2xl text-fg group-hover:text-accent transition-colors duration-300">
-                    {item.title}
-                  </h3>
-                  <p className="font-body text-sm text-muted mt-1">
-                    {item.event}
-                  </p>
-                  <p className="font-body text-muted text-sm sm:text-base leading-relaxed mt-4 max-w-2xl">
-                    {item.description}
-                  </p>
+                <p className="font-sans text-sm sm:text-base text-body leading-relaxed max-w-3xl">
+                  {item.description}
+                </p>
 
-                  {/* Tags as inline text */}
-                  <p className="font-mono text-xs text-[#2a2a2a] mt-5 group-hover:text-muted transition-colors duration-500">
-                    {item.tags.join(" · ")}
-                  </p>
+                {/* Tags */}
+                <div className="mt-5 pt-4 border-t border-surface-border flex flex-wrap gap-2">
+                  {item.tags.map((tag, tIdx) => (
+                    <span
+                      key={tIdx}
+                      className="px-2.5 py-1 rounded-lg text-xs font-mono bg-surface border border-surface-border text-fg"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
-              {idx === all.length - 1 && <div className="divider" />}
             </div>
           ))}
         </div>
